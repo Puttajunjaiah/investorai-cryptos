@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class InvestorAITest {
 
-    private static final String APP = "https://github.com/Puttajunjaiah/investorai-cryptos/raw/main/InvestorAiCrypto_1.0.7.apk";
+    private static final String APP = "https://github.com/Puttajunjaiah/investorai-cryptos/raw/main/src/app/InvestorAiCrypto_1.0.7.apk";
     private static final String APPIUM = "http://localhost:4723/wd/hub";
 
     private AndroidDriver driver;
@@ -58,7 +58,7 @@ public class InvestorAITest {
         
         //Enter username, password and tap Login
         driver.findElement(MobileBy.id("com.investorai.crypto:id/et_username")).sendKeys("xyz@bridgeweave.com");
-        driver.findElement(MobileBy.id("com.investorai.crypto:id/et_password")).sendKeys("xxxxxxxx");
+        driver.findElement(MobileBy.id("com.investorai.crypto:id/et_password")).sendKeys("xxxxxxx");
         loginBtn.click();
         
         WebElement agreeBtn = wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("com.investorai.crypto:id/btn_agree")));
