@@ -50,7 +50,8 @@ public class InvestorAITest {
     public void test() {
     	String titleText = "";
         WebDriverWait wait = new WebDriverWait(driver, 20);
-
+        
+        //wait for the app to load
         WebElement getStarted = wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("com.investorai.crypto:id/btn_getStart")));
         getStarted.click();
 
@@ -64,9 +65,11 @@ public class InvestorAITest {
         WebElement agreeBtn = wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("com.investorai.crypto:id/btn_agree")));
         agreeBtn.click();
         
+        //wait for the chart to load
         wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("com.investorai.crypto:id/chart1")));
         wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("com.investorai.crypto:id/rb_allocationGraphCurrent")));
 
+        //perform swipe up action to reach 'Add Strategy' button on the screen
         PointerInput finger = new PointerInput(Kind.TOUCH, "finger");
         Interaction moveToStart = finger.createPointerMove(Duration.ZERO, Origin.viewport(), 520, 1530);
         Interaction pressDown = finger.createPointerDown(MouseButton.LEFT.asArg());
@@ -81,6 +84,7 @@ public class InvestorAITest {
 
         driver.perform(Arrays.asList(swipe));
 
+        //click 'Add Strategy' button
         driver.findElement(MobileBy.id("com.investorai.crypto:id/btn_addStrategy")).click();
 
         WebElement alphaHunter = wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.xpath("//android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/androidx.cardview.widget.CardView[2]/android.view.ViewGroup/android.widget.Button")));
